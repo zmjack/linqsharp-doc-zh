@@ -12,7 +12,17 @@ export default {
     title: '大纲'
   },
   editLink: {
-    text: '编辑该页'
+    text: '编辑该页',
+    component: function (props) {
+      return (
+        <a
+          className={props.className}
+          href={`https://github.com/zmjack/linqsharp-doc-zh/blob/main/${props.filePath}`}
+        >
+          {props.children}
+        </a>
+      );
+    }
   },
   feedback: {
     useLink: () => 'https://github.com/zmjack/linqsharp/issues/new?labels=feedback',
