@@ -1,0 +1,9 @@
+{
+    "index": "简介",
+    "guide": "使用指南",
+    "linq": "LINQ",
+    "memory": "内存查询",
+    "ef": "Entity Framework",
+    "cli": "命令行工具",
+    "update-logs": "更新日志"
+}
