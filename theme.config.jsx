@@ -1,4 +1,17 @@
 export default {
+  useNextSeoProps() {
+    const { basePath } = useRouter()
+    if (basePath !== '/') {
+      return {
+        titleTemplate: '%s – LinqSharp'
+      };
+    } else {
+      return {
+        titleTemplate: 'LinqSharp'
+      };
+    }
+  },
+
   logo: <span>LinqSharp</span>,
   project: {
     link: 'https://github.com/zmjack/linqsharp'
