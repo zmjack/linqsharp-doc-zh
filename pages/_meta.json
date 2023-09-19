@@ -9,7 +9,7 @@
     "site-en": {
         "title": "English",
         "type": "page",
-        "href": "https://linqsharp.net",
+        "href": "https://linqsharp.net/?lang=en",
         "newWindow": true
     }
 }
