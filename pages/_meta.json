@@ -5,7 +5,7 @@
     "memory": "内存查询",
     "ef": "Entity Framework",
     "cli": "命令行工具",
-    "update-logs": "更新日志",
+    "updates": "更新日志",
     "site-en": {
         "title": "English",
         "type": "page",
