@@ -1,2 +1,52 @@
-### Paging Query
+import Alert from '../../components/alert'
 
+## 分页查询
+
+<Alert type="tip">
+该文档可能已过期。
+</Alert>
+
+- **SelectPage**：查询结果分页或执行分页查询。（分页参数从第 **1** 页开始）
+
+例如，查询雇员（**Employees**）表，按每页 **2** 条记录分页，选择第 **3** 页的记录返回：
+
+| EmployeeID | Address                       | City     |
+| :--------- | :---------------------------- | :------- |
+| 1          | 507 - 20th Ave. E. Apt. 2A    | Seattle  |
+| 2          | 908 W. Capital Way            | Tacoma   |
+| 3          | 722 Moss Bay Blvd.            | Kirkland |
+| 4          | 4110 Old Redmond Rd.          | Redmond  |
+| 5          | 14 Garrett Hill               | London   |
+| 6          | Coventry House Miner Rd.      | London   |
+| 7          | Edgeham Hollow Winchester Way | London   |
+| 8          | 4726 - 11th Ave. N.E.         | Seattle  |
+| 9          | 7 Houndstooth Rd.             | London   |
+
+```csharp
+var query = sqlite.Employees
+    .SelectPage(pageNumber: 3, pageSize: 2);
+var result = query.Select(x => new
+{
+    x.EmployeeID,
+    x.Address,
+    x.City,
+}).ToArray();
+```
+
+生成 SQL：
+
+```sql
+SELECT *
+FROM "Employees" AS "e"
+ORDER BY (SELECT 1)
+LIMIT 2 OFFSET 4;
+```
+
+运行结果：
+
+| EmployeeID | Address                  | City   |
+| :--------- | :----------------------- | :----- |
+| 5          | 14 Garrett Hill          | London |
+| 6          | Coventry House Miner Rd. | London |
+
+<br/>

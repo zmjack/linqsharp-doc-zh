@@ -1,2 +1,65 @@
-### Order by Case
+import Alert from '../../components/alert'
 
+## 序列排序
+
+<Alert type="tip">
+该文档可能已过期。
+</Alert>
+
+- **OrderByCase / ThenByCase**：按指定字符串序列排序。
+
+例如，查询地区（**Regions**）表，将结果按 **N / E / W / S** 的地区序列排序返回：
+
+| RegionID | RegionDescription |
+| :------- | :---------------- |
+| 1        | Eastern           |
+| 2        | Western           |
+| 3        | Northern          |
+| 4        | Southern          |
+
+```csharp
+var query = sqlite.Regions
+    .OrderByCase(x => x.RegionDescription, new[]
+    {
+        "Northern",
+        "Eastern",
+        "Western",
+        "Southern",
+    });
+var result = query.Select(x => new
+{
+    x.RegionID,
+    x.RegionDescription,
+});
+```
+
+执行 SQL：
+
+```sql
+SELECT *
+FROM "Regions" AS "r"
+ORDER BY CASE
+    WHEN "r"."RegionDescription" = 'Northern' THEN 0
+    ELSE CASE
+        WHEN "r"."RegionDescription" = 'Eastern' THEN 1
+        ELSE CASE
+            WHEN "r"."RegionDescription" = 'Western' THEN 2
+            ELSE CASE
+                WHEN "r"."RegionDescription" = 'Southern' THEN 3
+                ELSE 4
+            END
+        END
+    END
+END;
+```
+
+运行结果：
+
+| RegionID | RegionDescription |
+| :------- | :---------------- |
+| 3        | Northern          |
+| 1        | Eastern           |
+| 2        | Western           |
+| 4        | Southern          |
+
+<br/>

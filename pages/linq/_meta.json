@@ -2,6 +2,6 @@
     "search": "内容搜索",
     "field-filter": "字段筛选器",
     "query-filter": "查询筛选器",
-    "order-by-case": "按值排序",
+    "order-by-case": "序列排序",
     "paging-query": "分页查询"
 }
