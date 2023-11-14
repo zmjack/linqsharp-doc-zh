@@ -132,7 +132,7 @@ Employee  "1" --> "*" Order
 
 3. 随后，您需要添加 `NorthwndFactory.cs` 文件到工程根目录：
 
-    ```csharp
+    ```csharp filename="NorthwndFactory.cs"
     public class NorthwndFactory : IDesignTimeDbContextFactory<NorthwndContext>
     {
         private static readonly string _connectionString = "Data Source=northwnd.db";
@@ -156,7 +156,7 @@ Employee  "1" --> "*" Order
 
 5. 编辑 `Program.cs`：
 
-    ```csharp
+    ```csharp filename="Program.cs"
     static void Main(string[] args)
     {
         var factory = new NorthwndFactory();

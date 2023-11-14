@@ -54,7 +54,7 @@ Supplier "1" --> "*" Product
 
 原调用语法：
 
-```csharp
+```csharp copy {5-6}
 /* Old code */
 from c in Categories.Search("a", c => new
 {
@@ -75,7 +75,7 @@ select new
 
 下面是生成的 **SQL** 调用，由于每条规则是独立处理，因此会生成多个 **EXISTS** 部分，然后使用 **OR** 连接。
 
-```sql
+```sql {6-7,9-11}
 /* Generated SQL */
 SELECT `@`.`CategoryName`
 FROM `@n.Categories` AS `@`
@@ -100,7 +100,7 @@ WHERE ((`@`.`CategoryName` LIKE '%a%') OR EXISTS (
 
 使用 **LINQ** 调用，我们可以使用 **let** 语句来定义查询链，以更容易的方式来编写代码：
 
-```csharp
+```csharp copy {6-12}
 /* LINQ code */
 from c in Categories.Search("a", c => new SearchSelector
 {
@@ -122,11 +122,12 @@ select new
 
 同义的 **Lambda** 调用：
 
-```csharp
+```csharp copy {6-10}
 /* Lambda code */
 from c in Categories.Search("a", c => new SearchSelector
 {
-    c.CategoryName,    
+    c.CategoryName,
+    
     c.Products.Select(p => new
     {
         p.ProductName,
@@ -141,7 +142,7 @@ select new
 
 生成的 **SQL** 调用：
 
-```sql
+```sql {6-8}
 /* Generated SQL */
 SELECT `@`.`CategoryName`
 FROM `@n.Categories` AS `@`
@@ -160,7 +161,7 @@ WHERE (`@`.`CategoryName` LIKE '%a%') OR EXISTS (
 
 例如，在上述案例中，如果使用 **多条规则** 实现：
 
-```csharp
+```csharp copy {4-5}
 /* LINQ code */
 from c in Categories.Search("a", c => new SearchSelector
 {
@@ -175,7 +176,7 @@ select new
 
 那么，生成的 **SQL** 调用就会变为：
 
-```sql
+```sql {5-6,8-10}
 SELECT `@`.`CategoryName`
 FROM `@n.Categories` AS `@`
 WHERE EXISTS (
@@ -190,7 +191,7 @@ WHERE EXISTS (
 
 推荐使用：
 
-```csharp
+```csharp copy {4-8}
 /* LINQ code */
 from c in Categories.Search("a", c => new SearchSelector
 {
@@ -223,7 +224,7 @@ select new
 
 <br/>
 
-```csharp
+```csharp {2}
 /* LINQ code */
 from c in Categories.Search("a", c => new SearchSelector(SearchMode.Contains)
 {
