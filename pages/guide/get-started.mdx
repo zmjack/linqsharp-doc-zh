@@ -121,7 +121,7 @@ Employee  "1" --> "*" Order
 
 2. 执行以下命令安装 **Northwnd**:
 
-    ```powershel
+    ```powershel copy
     dotnet add package Microsoft.EntityFrameworkCore --version 7.0.0
     dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0
     dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 7.0.0
@@ -132,7 +132,7 @@ Employee  "1" --> "*" Order
 
 3. 随后，您需要添加 `NorthwndFactory.cs` 文件到工程根目录：
 
-    ```csharp filename="NorthwndFactory.cs"
+    ```csharp copy filename="NorthwndFactory.cs"
     public class NorthwndFactory : IDesignTimeDbContextFactory<NorthwndContext>
     {
         private static readonly string _connectionString = "Data Source=northwnd.db";
@@ -150,13 +150,13 @@ Employee  "1" --> "*" Order
 
 4. 打开终端，执行以下脚本来生成迁移，并应用到数据库：
 
-    ```powershell
+    ```powershell copy
     dotnet ef migrations add InitNorthwnd
     ```
 
 5. 编辑 `Program.cs`：
 
-    ```csharp filename="Program.cs"
+    ```csharp copy filename="Program.cs"
     static void Main(string[] args)
     {
         var factory = new NorthwndFactory();
