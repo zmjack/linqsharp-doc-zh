@@ -17,34 +17,19 @@ classDiagram
 class Category {
     + CategoryID int
     + CategoryName string
-    + Description string
     ----
     + Products ICollection~Product~
 }
 class Product {
     + ProductID int
     + ProductName string
-    + QuantityPerUnit string
-    + Discontinued bool
     ----
     + SupplierLink Supplier
     + CategoryLink Category
-    ----
-    + OrderDetails ICollection~OrderDetail~
 }
 class Supplier {
     + SupplierID int
     + CompanyName string
-    + ContactName string
-    + ContactTitle string
-    + Address string
-    + City string
-    + Region string
-    + PostalCode string
-    + Country string
-    + Phone string
-    + Fax string
-    + HomePage string
     ----
     + Products ICollection~Product~
 }
@@ -205,6 +190,18 @@ select new
 {
     c.CategoryName,
 }
+```
+
+```sql {8}
+SELECT `@`.`CategoryName`
+FROM `@n.Categories` AS `@`
+WHERE EXISTS (
+    SELECT 1
+    FROM `@n.Products` AS `@0`
+    LEFT JOIN `@n.Suppliers` AS `@1` ON `@0`.`SupplierID` = `@1`.`SupplierID`
+    WHERE (`@`.`CategoryID` = `@0`.`CategoryID`) AND (
+        (`@0`.`ProductName` LIKE '%a%') OR (`@1`.`CompanyName` LIKE '%a%'))
+    )
 ```
 
 <br/>
