@@ -1,8 +1,31 @@
-# LinqSharp
+import { TextTitle, TextCenter } from '../components/text'
+import { SiteBadge, NuGetBadge } from '../components/shields'
+
+<TextTitle> LinqSharp </TextTitle>
+
+<TextCenter>
+<SiteBadge label="English" text="linqsharp.net" link="https://linqsharp.net" />
+<SiteBadge label="中文" text="zh.linqsharp.net" link="https://zh.linqsharp.net" />
+</TextCenter>
+
+<TextCenter>
+<NuGetBadge package="LinqSharp" />
+<NuGetBadge package="LinqSharp" type="download" label="Download" />
+<NuGetBadge package="LinqSharp.EFCore" />
+<NuGetBadge package="LinqSharp.EFCore" type="download" label="Download" />
+</TextCenter>
 
 *更好的 **LINQ** , 更好的 **.NET** .*
 
+
+
+#### LinqSharp
+
 **LinqSharp** 是个开源 **LINQ** 扩展库，它允许您编写简单代码来生成复杂查询，包括查询扩展和动态查询生成。
+
+
+
+#### LinqSharp.EFCore
 
 **LinqSharp.EFCore** 是对 **EntityFramework** 的增强库，提供更多数据注解、数据库函数及自定义储存规则等。
 

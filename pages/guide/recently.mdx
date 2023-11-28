@@ -1,10 +1,10 @@
-import Alert from '../../components/alert'
+import { Note } from '../../components/alert'
 
 # 版本计划：搜索更新
 
-<Alert type="note">
+<Note>
 计划于 2023 年 12 月 31 日前更新。
-</Alert>
+</Note>
 
 ### 原搜索语法
 
@@ -64,10 +64,12 @@ select new
 /* Generated SQL */
 SELECT `@`.`CategoryName`
 FROM `@n.Categories` AS `@`
-WHERE ((`@`.`CategoryName` LIKE '%a%') OR EXISTS (
+WHERE (
+    (`@`.`CategoryName` LIKE '%a%') OR EXISTS (
     SELECT 1
     FROM `@n.Products` AS `@0`
-    WHERE (`@`.`CategoryID` = `@0`.`CategoryID`) AND (`@0`.`ProductName` LIKE '%a%'))) OR EXISTS (
+    WHERE (`@`.`CategoryID` = `@0`.`CategoryID`) AND (`@0`.`ProductName` LIKE '%a%'))
+) OR EXISTS (
     SELECT 1
     FROM `@n.Products` AS `@1`
     LEFT JOIN `@n.Suppliers` AS `@2` ON `@1`.`SupplierID` = `@2`.`SupplierID`
