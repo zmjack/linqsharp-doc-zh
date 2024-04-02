@@ -1,11 +1,11 @@
 ## 自动字段
 
-| 图例               | 描述     |
-| ------------------ | -------- |
-| :pencil2:          | 自动管理 |
-| :heavy_check_mark: | 允许生效 |
-| :x:                | 禁止生效 |
-| :warning:          | 抛出错误 |
+| 图例 | 描述     |
+| ---- | -------- |
+| ✏️    | 自动管理 |
+| ✔️    | 允许生效 |
+| ❌    | 禁止生效 |
+| ⚠️    | 抛出错误 |
 
 <br/>
 
@@ -13,11 +13,11 @@
 
 **AutoCreationTime** / **AutoLastWriteTime**
 
-|               | 新增               | 修改               | 删除               |
-| ------------- | ------------------ | ------------------ | ------------------ |
-| **Auto**      | :pencil2:          | :pencil2:          | :heavy_check_mark: |
-| **Preserve**  | :heavy_check_mark: | :x:                | :heavy_check_mark: |
-| **Specified** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|               | 新增 | 修改 | 删除 |
+| ------------- | ---- | ---- | ---- |
+| **Auto**      | ✏️    | ✏️    | ✔️    |
+| **Preserve**  | ✔️    | ❌    | ✔️    |
+| **Specified** | ✔️    | ✔️    | ✔️    |
 
 <br/>
 
@@ -25,16 +25,16 @@
 
 **数据库值** 为 **null** 时：
 
-|               | 新增               | 修改               | 删除               |
-| ------------- | ------------------ | ------------------ | ------------------ |
-| **Auto**      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Preserve**  | :heavy_check_mark: | :x:                | :heavy_check_mark: |
-| **Specified** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|               | 新增 | 修改 | 删除 |
+| ------------- | ---- | ---- | ---- |
+| **Auto**      | ✔️    | ✔️    | ✔️    |
+| **Preserve**  | ✔️    | ❌    | ✔️    |
+| **Specified** | ✔️    | ✔️    | ✔️    |
 
 **数据库值** 为 **not null** 时：
 
-|               | 新增               | 修改               | 删除               |
-| ------------- | ------------------ | ------------------ | ------------------ |
-| **Auto**      | :heavy_check_mark: | :warning:          | :warning:          |
-| **Preserve**  | :heavy_check_mark: | :warning:          | :heavy_check_mark: |
-| **Specified** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|               | 新增 | 修改 | 删除 |
+| ------------- | ---- | ---- | ---- |
+| **Auto**      | ✔️    | ⚠️    | ⚠️    |
+| **Preserve**  | ✔️    | ⚠️    | ✔️    |
+| **Specified** | ✔️    | ✔️    | ✔️    |

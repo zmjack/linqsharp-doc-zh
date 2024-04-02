@@ -1,11 +1,11 @@
 {
-    "agent-query": "代理查询",
-    "concurrency-resolving": "解决并发冲突",
     "design-annotation": "设计特性",
     "format-annotation": "格式化特性",
+    "auto-field": "自动字段",
+    "concurrency-resolving": "解决并发冲突",
+    "agent-query": "代理查询",
     "direct-handing": "直接操作",
     "monitoring": "数据监视",
     "translator": "转译器",
-    "web-feature": "Web 协作",
-    "auto-field": "自动字段"
+    "web-feature": "Web 协作"
 }
